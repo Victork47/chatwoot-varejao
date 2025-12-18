@@ -1,5 +1,6 @@
 // scss-lint:disable PropertySortOrder
 @layer base {
+
   // NEXT COLORS START
   :root {
     // slate
@@ -114,6 +115,21 @@
     --black-alpha-2: 0, 0, 0, 0.04;
     --border-blue: 39, 129, 246, 0.5;
     --white-alpha: 255, 255, 255, 0.8;
+
+    // Liquid Glass Theme - Performance Optimized
+    --glass-green-1: 0 122 0;
+    --glass-green-2: 0 77 0;
+    --glass-green-3: 0 61 0;
+    --glass-gold: 255 215 0;
+    --glass-orange: 255 165 0;
+    --glass-cyan: 64 224 208;
+    --glass-green-light: 173 255 47;
+    --glass-pink: 255 20 147;
+
+    // Glass Effect - Light blur for performance
+    --glass-blur: 8px;
+    --glass-bg: rgba(255, 255, 255, 0.06);
+    --glass-border: rgba(255, 255, 255, 0.1);
   }
 
   .dark {
@@ -229,6 +245,22 @@
     --border-blue: 39, 129, 246, 0.5;
     --border-container: 236, 236, 236, 0;
     --white-alpha: 255, 255, 255, 0.1;
+
+    // Liquid Glass Theme - Dark Mode (Performance Optimized)
+    --glass-green-1: 0 90 0;
+    --glass-green-2: 0 55 0;
+    --glass-green-3: 0 40 0;
+    --glass-gold: 255 200 0;
+    --glass-orange: 255 140 0;
+    --glass-cyan: 50 200 190;
+    --glass-green-light: 140 220 40;
+    --glass-pink: 255 50 160;
+
+    // Glass Effect - Dark mode adjusted
+    --glass-blur: 8px;
+    --glass-bg: rgba(0, 50, 0, 0.15);
+    --glass-border: rgba(173, 255, 47, 0.12);
   }
 }
+
 // NEXT COLORS END

@@ -99,7 +99,7 @@ export default {
 </script>
 
 <template>
-  <div class="conversation--container" :class="colorSchemeClass">
+  <div class="conversation--container glass-widget" :class="colorSchemeClass">
     <div class="conversation-wrap" :class="{ 'is-typing': isAgentTyping }">
       <div v-if="isFetchingList" class="message--loader">
         <Spinner />
