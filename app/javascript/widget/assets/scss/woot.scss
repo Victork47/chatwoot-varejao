@@ -242,23 +242,28 @@ a {
   border: 1px solid rgba(0, 196, 162, 0.15) !important;
 }
 
-// Scrollbar - Sempre visível, minimalista
+// Scrollbar - Escondida para visual limpo
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 0px;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 3px;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.18);
-  border-radius: 3px;
+  background: transparent;
+}
 
-  &:hover {
-    background: rgba(255, 255, 255, 0.28);
-  }
+// Scrollbar visível apenas em containers de chat quando necessário
+.conversation-wrap::-webkit-scrollbar {
+  width: 4px;
+}
+
+.conversation-wrap::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
 }
 
 // Footer - Liquid Glass

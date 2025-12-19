@@ -1,15 +1,12 @@
 <script>
-import TeamAvailability from 'widget/components/TeamAvailability.vue';
 import DepartmentCards from 'widget/components/DepartmentCards.vue';
 import { mapGetters } from 'vuex';
 import { useRouter } from 'vue-router';
 import configMixin from 'widget/mixins/configMixin';
-import ArticleContainer from '../components/pageComponents/Home/Article/ArticleContainer.vue';
+
 export default {
   name: 'Home',
   components: {
-    ArticleContainer,
-    TeamAvailability,
     DepartmentCards,
   },
   mixins: [configMixin],
@@ -19,9 +16,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      availableAgents: 'agent/availableAgents',
       conversationSize: 'conversation/getConversationSize',
-      unreadMessageCount: 'conversation/getUnreadMessageCount',
     }),
   },
   methods: {
@@ -37,17 +32,8 @@ export default {
 
 <template>
   <div class="z-50 flex flex-col justify-end flex-1 w-full p-4 gap-4 overflow-y-auto">
-    <TeamAvailability
-      :available-agents="availableAgents"
-      :has-conversation="!!conversationSize"
-      :unread-count="unreadMessageCount"
-      @start-conversation="startConversation"
-    />
-
     <!-- Cards de Departamentos -->
     <DepartmentCards />
-
-    <ArticleContainer />
   </div>
 </template>
 
