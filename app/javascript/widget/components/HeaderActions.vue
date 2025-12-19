@@ -125,7 +125,7 @@ export default {
       @click="toggleExpand"
     >
       <FluentIcon 
-        :icon="isExpanded ? 'chevron-down-outline' : 'chevron-right-outline'" 
+        :icon="isExpanded ? 'chevron-down' : 'chevron-right'" 
         size="20" 
         class="text-n-slate-12" 
       />
