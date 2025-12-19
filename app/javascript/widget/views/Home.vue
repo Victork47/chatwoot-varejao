@@ -1,5 +1,6 @@
 <script>
 import TeamAvailability from 'widget/components/TeamAvailability.vue';
+import DepartmentCards from 'widget/components/DepartmentCards.vue';
 import { mapGetters } from 'vuex';
 import { useRouter } from 'vue-router';
 import configMixin from 'widget/mixins/configMixin';
@@ -9,6 +10,7 @@ export default {
   components: {
     ArticleContainer,
     TeamAvailability,
+    DepartmentCards,
   },
   mixins: [configMixin],
   setup() {
@@ -34,7 +36,7 @@ export default {
 </script>
 
 <template>
-  <div class="z-50 flex flex-col justify-end flex-1 w-full p-4 gap-4">
+  <div class="z-50 flex flex-col justify-end flex-1 w-full p-4 gap-4 overflow-y-auto">
     <TeamAvailability
       :available-agents="availableAgents"
       :has-conversation="!!conversationSize"
@@ -42,6 +44,10 @@ export default {
       @start-conversation="startConversation"
     />
 
+    <!-- Cards de Departamentos -->
+    <DepartmentCards />
+
     <ArticleContainer />
   </div>
 </template>
+
