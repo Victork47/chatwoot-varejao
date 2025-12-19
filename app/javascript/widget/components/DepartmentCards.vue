@@ -95,7 +95,7 @@ export default {
         @click="selectDepartment(dept)"
       >
         <div class="card-icon" :style="{ backgroundColor: dept.color + '20', color: dept.color }">
-          <FluentIcon :icon="dept.icon" size="24" />
+          <FluentIcon :icon="dept.icon" size="20" />
         </div>
         <div class="card-content">
           <span class="card-title">{{ dept.name }}</span>
@@ -141,16 +141,17 @@ export default {
 .department-card {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  padding: 12px;
+  gap: 8px; /* Reduced gap */
+  padding: 8px; /* Reduced padding */
   background: rgba(30, 30, 35, 0.4);
   backdrop-filter: blur(16px) saturate(150%);
   -webkit-backdrop-filter: blur(16px) saturate(150%);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 16px;
+  border-radius: 12px; /* Smaller radius */
   cursor: pointer;
   transition: all 0.2s ease;
   text-align: left;
+  min-height: 50px; /* Ensure minimum click area */
   
   &:hover {
     background: rgba(40, 40, 45, 0.5);
@@ -167,34 +168,40 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  border-radius: 10px;
+  width: 32px; /* Smaller icon box */
+  height: 32px;
+  min-width: 32px;
+  border-radius: 8px;
   flex-shrink: 0;
 }
 
 .card-content {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 0px; /* Tighter vertical spacing */
   overflow: hidden;
+  justify-content: center;
   
   .card-title {
-    font-size: 13px;
+    font-size: 12px; /* Smaller title */
     font-weight: 600;
     color: #f0f0f0;
-    white-space: nowrap;
+    white-space: normal; /* Allow wrapping */
+    line-height: 1.2;
     overflow: hidden;
-    text-overflow: ellipsis;
+    /* Remove ellipsis if wrapping is desired, or keep line-clamp */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
   
   .card-description {
-    font-size: 11px;
+    font-size: 10px; /* Smaller description */
     color: #9ca3af;
-    line-height: 1.3;
+    line-height: 1.2;
+    margin-top: 2px;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1; /* Limit lines */
     -webkit-box-orient: vertical;
     overflow: hidden;
   }

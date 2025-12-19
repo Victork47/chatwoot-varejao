@@ -292,4 +292,20 @@ export const SDK_CSS = `
 .woot-hidden {
   display: none !important;
 }
+
+/* Varejão Glassmorphism Styles for Widget Container */
+.woot-widget-holder {
+  background: rgba(14, 14, 16, 0.7) !important;
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+}
+
+.woot-widget-holder.woot-widget-holder--flat {
+  border-radius: 0 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
 `;

@@ -145,7 +145,7 @@ export default {
 <style scoped lang="scss">
 .actions {
   .close-button {
-    display: none;
+    display: block !important; /* Force display */
   }
 
   .rn-close-button {

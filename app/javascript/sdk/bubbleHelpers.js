@@ -33,7 +33,7 @@ export const createBubbleIcon = ({ className, path, target }) => {
   // Usar imagem SVG em vez de path inline
   const bubbleIcon = document.createElement('img');
   bubbleIcon.id = 'woot-widget-bubble-icon';
-  bubbleIcon.src = '/icon.svg';
+  bubbleIcon.src = '/images/icon.svg';
   bubbleIcon.alt = 'Chat';
   bubbleIcon.style.width = '24px';
   bubbleIcon.style.height = '24px';

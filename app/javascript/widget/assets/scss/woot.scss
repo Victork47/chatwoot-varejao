@@ -663,22 +663,24 @@ blockquote {
 // ============================================
 // Nota: Classes aplicadas ao container interno do iframe
 
-// Modo Home (compacto) - 450px
+// Modo Home (compacto) - Sem limite fixo que gere espaço vazio
 .widget-home-mode {
-  max-height: 450px !important;
+  height: 100% !important;
+  max-height: 100% !important;
   overflow: hidden;
 }
 
-// Modo Chat (mais alto) - 520px  
+// Modo Chat (mais alto) - Sem limite fixo
 .widget-chat-mode {
-  max-height: 520px !important;
+  height: 100% !important;
+  max-height: 100% !important;
   overflow: hidden;
 }
 
 // Modo Expandido (full height)
 .widget-expanded {
-  max-height: calc(100vh - 20px) !important;
-  height: calc(100vh - 20px) !important;
+  height: 100% !important;
+  max-height: 100% !important;
   overflow: hidden;
 }
 
