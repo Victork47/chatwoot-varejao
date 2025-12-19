@@ -106,6 +106,7 @@ $varejao-pink: rgb(255, 0, 127);
   }
 }
 
+
 // Dark mode ajustes
 .dark {
   .glass-widget {
@@ -123,6 +124,133 @@ $varejao-pink: rgb(255, 0, 127);
     background: rgba(var(--solid-1), 0.85);
     border-color: rgba(var(--border-weak), 0.3);
   }
+}
+
+// ========================================
+// FORÇAR DARK MODE E CORES VAREJÃO
+// ========================================
+
+// Classe utilitária para cor verde
+.text-varejao-green {
+  color: #00c4a2 !important;
+}
+
+// Container principal - dark forçado
+html,
+body,
+.woot-widget-wrap,
+.woot-widget-holder,
+.woot-widget-bubble,
+.conversation--container,
+.conversation-wrap {
+  background: rgb(14, 14, 16) !important;
+  color: #e0e0e0 !important;
+}
+
+// Mensagens do usuário - verde Varejão FORÇADO
+.chat-bubble.user {
+  background: linear-gradient(135deg, #00c4a2, #00a88a) !important;
+  color: white !important;
+  box-shadow: 0 4px 16px rgba(0, 196, 162, 0.3) !important;
+  border: none !important;
+}
+
+// Mensagens do agente - glass dark
+.chat-bubble.agent,
+.chat-bubble:not(.user) {
+  background: rgba(30, 30, 35, 0.95) !important;
+  color: #e0e0e0 !important;
+  border: 1px solid rgba(0, 196, 162, 0.15) !important;
+}
+
+// Header dark com glass
+header,
+.glass-header {
+  background: rgba(14, 14, 16, 0.98) !important;
+  border-bottom: 1px solid rgba(0, 196, 162, 0.2) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+}
+
+// Cards e containers
+.bg-n-background,
+.bg-n-solid-2,
+.bg-n-solid-1,
+.bg-n-slate-2,
+.dark\:bg-n-solid-1,
+.dark\:bg-n-solid-2 {
+  background: rgb(20, 20, 24) !important;
+}
+
+// Textos
+.text-n-slate-12 {
+  color: #e0e0e0 !important;
+}
+
+// Inputs
+input,
+textarea {
+  background: rgba(30, 30, 35, 0.9) !important;
+  border: 1px solid rgba(0, 196, 162, 0.3) !important;
+  color: #e0e0e0 !important;
+
+  &:focus {
+    border-color: #00c4a2 !important;
+    box-shadow: 0 0 0 3px rgba(0, 196, 162, 0.15) !important;
+    outline: none !important;
+  }
+
+  &::placeholder {
+    color: rgba(224, 224, 224, 0.5) !important;
+  }
+}
+
+// Botões primários - verde Varejão
+button[class*="text-n-brand"],
+.text-n-brand {
+  color: #00c4a2 !important;
+}
+
+// Links
+a {
+  color: #00c4a2 !important;
+}
+
+// Card de disponibilidade/times
+.rounded-xl {
+  background: rgb(20, 20, 24) !important;
+  border: 1px solid rgba(0, 196, 162, 0.15) !important;
+}
+
+// Scroll customizado
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(20, 20, 24);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 196, 162, 0.3);
+  border-radius: 3px;
+
+  &:hover {
+    background: rgba(0, 196, 162, 0.5);
+  }
+}
+
+// Footer
+footer,
+.glass-footer {
+  background: rgba(14, 14, 16, 0.98) !important;
+  border-top: 1px solid rgba(0, 196, 162, 0.15) !important;
+}
+
+// Ícones
+.i-lucide-chevron-right,
+.i-lucide-chevron-left {
+  color: #00c4a2 !important;
 }
 
 html,

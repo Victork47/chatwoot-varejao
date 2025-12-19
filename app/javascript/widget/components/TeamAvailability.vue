@@ -32,8 +32,7 @@ const startConversation = () => {
     <AvailabilityContainer :agents="availableAgents" show-header show-avatars />
 
     <button
-      class="inline-flex items-center gap-1 font-medium text-n-slate-12"
-      :style="{ color: widgetColor }"
+      class="inline-flex items-center gap-1 font-medium text-varejao-green"
       @click="startConversation"
     >
       <span>
