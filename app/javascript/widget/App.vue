@@ -39,6 +39,7 @@ export default {
   data() {
     return {
       isMobile: false,
+      isWidgetExpanded: false,
       campaignsSnoozedTill: undefined,
     };
   },
@@ -98,6 +99,7 @@ export default {
     this.$store.dispatch('conversationAttributes/getAttributes');
     this.registerUnreadEvents();
     this.registerCampaignEvents();
+    this.registerExpandEvent();
   },
   methods: {
     ...mapActions('appConfig', [
@@ -186,6 +188,11 @@ export default {
       emitter.on('snooze-campaigns', () => {
         const expireBy = addHours(new Date(), 1);
         this.campaignsSnoozedTill = Number(expireBy);
+      });
+    },
+    registerExpandEvent() {
+      emitter.on('widget-expand-toggle', (isExpanded) => {
+        this.isWidgetExpanded = isExpanded;
       });
     },
     setCampaignView() {
@@ -365,6 +372,9 @@ export default {
       'is-widget-right': isRightAligned,
       'is-bubble-hidden': hideMessageBubble,
       'is-flat-design': isWidgetStyleFlat,
+      'widget-home-mode': $route.name === 'home',
+      'widget-chat-mode': $route.name === 'messages',
+      'widget-expanded': isWidgetExpanded,
       dark: prefersDarkMode,
     }"
   >

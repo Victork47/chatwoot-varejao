@@ -183,7 +183,7 @@ export const IFrameHelper = {
         IFrameHelper.sendMessage('set-user', window.$chatwoot.user);
       }
 
-      window.playAudioAlert = () => {};
+      window.playAudioAlert = () => { };
 
       initOnEvents.forEach(e => {
         document.addEventListener(e, IFrameHelper.setupAudioListeners, false);
@@ -328,8 +328,10 @@ export const IFrameHelper = {
 
     addClasses(closeBubble, closeBtnClassName);
 
-    chatIcon.style.background = widgetColor;
-    closeBubble.style.background = widgetColor;
+    // Varejão: Forçar cor verde independente da config do dashboard
+    const varejaoGreen = '#00c4a2';
+    chatIcon.style.background = varejaoGreen;
+    closeBubble.style.background = varejaoGreen;
 
     bubbleHolder.appendChild(chatIcon);
     bubbleHolder.appendChild(closeBubble);

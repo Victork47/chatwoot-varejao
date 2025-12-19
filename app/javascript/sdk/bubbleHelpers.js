@@ -29,25 +29,16 @@ export const setBubbleText = bubbleText => {
 
 export const createBubbleIcon = ({ className, path, target }) => {
   let bubbleClassName = `${className} woot-elements--${window.$chatwoot.position}`;
-  const bubbleIcon = document.createElementNS(
-    'http://www.w3.org/2000/svg',
-    'svg'
-  );
-  bubbleIcon.setAttributeNS(null, 'id', 'woot-widget-bubble-icon');
-  bubbleIcon.setAttributeNS(null, 'width', '24');
-  bubbleIcon.setAttributeNS(null, 'height', '24');
-  bubbleIcon.setAttributeNS(null, 'viewBox', '0 0 1080 1080');
-  bubbleIcon.setAttributeNS(null, 'fill', 'none');
-  bubbleIcon.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
 
-  const bubblePath = document.createElementNS(
-    'http://www.w3.org/2000/svg',
-    'path'
-  );
-  bubblePath.setAttributeNS(null, 'd', path);
-  bubblePath.setAttributeNS(null, 'fill', '#FFFFFF');
+  // Usar imagem SVG em vez de path inline
+  const bubbleIcon = document.createElement('img');
+  bubbleIcon.id = 'woot-widget-bubble-icon';
+  bubbleIcon.src = '/icon.svg';
+  bubbleIcon.alt = 'Chat';
+  bubbleIcon.style.width = '24px';
+  bubbleIcon.style.height = '24px';
+  bubbleIcon.style.pointerEvents = 'none';
 
-  bubbleIcon.appendChild(bubblePath);
   target.appendChild(bubbleIcon);
 
   if (isExpandedView(window.$chatwoot.type)) {

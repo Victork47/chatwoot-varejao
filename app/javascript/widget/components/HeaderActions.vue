@@ -5,6 +5,7 @@ import { popoutChatWindow } from '../helpers/popoutHelper';
 import FluentIcon from 'shared/components/FluentIcon/Index.vue';
 import configMixin from 'widget/mixins/configMixin';
 import { CONVERSATION_STATUS } from 'shared/constants/messages';
+import { emitter } from 'shared/helpers/mitt';
 
 export default {
   name: 'HeaderActions',
@@ -19,6 +20,11 @@ export default {
       type: Boolean,
       default: true,
     },
+  },
+  data() {
+    return {
+      isExpanded: false,
+    };
   },
   computed: {
     ...mapGetters({
@@ -39,7 +45,8 @@ export default {
       return RNHelper.isRNWebView();
     },
     showHeaderActions() {
-      return this.isIframe || this.isRNWebView || this.hasWidgetOptions;
+      // Sempre mostrar actions para ter o botão expandir
+      return true;
     },
     conversationStatus() {
       return this.conversationAttributes.status;
@@ -73,13 +80,24 @@ export default {
     resolveConversation() {
       this.$store.dispatch('conversation/resolveConversation');
     },
+    toggleExpand() {
+      this.isExpanded = !this.isExpanded;
+      emitter.emit('widget-expand-toggle', this.isExpanded);
+      // Comunicar com iframe pai para redimensionar
+      if (IFrameHelper.isIFrame()) {
+        IFrameHelper.sendMessage({ 
+          event: 'toggleExpand', 
+          isExpanded: this.isExpanded 
+        });
+      }
+    },
   },
 };
 </script>
 
 <!-- eslint-disable-next-line vue/no-root-v-if -->
 <template>
-  <div v-if="showHeaderActions" class="actions flex items-center gap-3">
+  <div v-if="showHeaderActions" class="actions flex items-center gap-2">
     <button
       v-if="
         canLeaveConversation &&
@@ -99,6 +117,18 @@ export default {
       @click="popoutWindow"
     >
       <FluentIcon icon="open" size="22" class="text-n-slate-12" />
+    </button>
+    <!-- Botão Expandir/Recolher -->
+    <button
+      class="button transparent compact expand-toggle-btn"
+      :title="isExpanded ? 'Recolher' : 'Expandir'"
+      @click="toggleExpand"
+    >
+      <FluentIcon 
+        :icon="isExpanded ? 'chevron-down-outline' : 'chevron-right-outline'" 
+        size="20" 
+        class="text-n-slate-12" 
+      />
     </button>
     <button
       class="button transparent compact close-button"
@@ -120,6 +150,16 @@ export default {
 
   .rn-close-button {
     display: block !important;
+  }
+  
+  .expand-toggle-btn {
+    padding: 6px;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
   }
 }
 </style>

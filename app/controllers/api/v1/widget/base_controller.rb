@@ -35,6 +35,7 @@ class Api::V1::Widget::BaseController < ApplicationController
       inbox_id: inbox.id,
       contact_id: @contact.id,
       contact_inbox_id: @contact_inbox.id,
+      team_id: find_team_id,
       additional_attributes: {
         browser_language: browser.accept_language&.first&.code,
         browser: browser_params,
@@ -43,6 +44,17 @@ class Api::V1::Widget::BaseController < ApplicationController
       },
       custom_attributes: permitted_params[:custom_attributes].presence || {}
     }
+  end
+
+  def find_team_id
+    return nil unless permitted_params[:custom_attributes].present?
+
+    department_name = permitted_params[:custom_attributes][:department_name]
+    return nil unless department_name.present?
+
+    # Busca o time pelo nome do departamento
+    team = inbox.account.teams.find_by('LOWER(name) = ?', department_name.downcase)
+    team&.id
   end
 
   def contact_email

@@ -14,39 +14,39 @@ export default {
   },
   data() {
     return {
-      // Configura os departamentos aqui
+      // Departamentos correspondentes aos Times do Chatwoot
       departments: [
         {
-          id: 'suporte-produtos',
-          name: 'Suporte Produtos',
-          description: 'Dúvidas sobre seus produtos',
-          icon: 'box',
+          id: 'suporte-meus-produtos',
+          name: 'Suporte Meus Produtos',
+          description: 'Suporte para produtos',
+          icon: 'document-outline',
           color: '#00c4a2',
-          message: '📦 [Suporte Produtos]\n\nOlá! Preciso de ajuda com meus produtos.',
+          message: '📦 [Suporte Meus Produtos]\n\nOlá! Preciso de ajuda com meus produtos.',
         },
         {
           id: 'suporte-fornecedor',
-          name: 'Fornecedor',
+          name: 'Suporte Fornecedor',
           description: 'Comprar em atacado',
-          icon: 'building-retail',
+          icon: 'globe-outline',
           color: '#6366f1',
-          message: '🏢 [Fornecedor]\n\nOlá! Tenho interesse em comprar em atacado.',
+          message: '🏢 [Suporte Fornecedor]\n\nOlá! Tenho interesse em comprar em atacado.',
         },
         {
           id: 'suporte-sms',
-          name: 'Suporte SMS',
-          description: 'Ajuda com SMS Virtual',
-          icon: 'chat',
+          name: 'Suporte Sms',
+          description: 'Suporte para SMS Virtual',
+          icon: 'chat-outline',
           color: '#f59e0b',
-          message: '💬 [Suporte SMS]\n\nOlá! Preciso de suporte com o SMS Virtual.',
+          message: '💬 [Suporte Sms]\n\nOlá! Preciso de suporte com o SMS Virtual.',
         },
         {
-          id: 'duvidas-produtos',
-          name: 'Dúvidas Produtos',
-          description: 'Informações sobre produtos',
-          icon: 'question-circle',
+          id: 'suporte-duvidas-produtos',
+          name: 'Suporte Duvidas Produtos',
+          description: 'Dúvidas sobre produtos',
+          icon: 'emoji-outline',
           color: '#ec4899',
-          message: '❓ [Dúvidas Produtos]\n\nOlá! Tenho dúvidas sobre produtos.',
+          message: '❓ [Suporte Duvidas Produtos]\n\nOlá! Tenho dúvidas sobre produtos.',
         },
       ],
     };
@@ -143,24 +143,23 @@ export default {
   align-items: flex-start;
   gap: 10px;
   padding: 12px;
-  background: rgba(30, 30, 35, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 196, 162, 0.15);
-  border-radius: 12px;
+  background: rgba(30, 30, 35, 0.4);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
   text-align: left;
   
   &:hover {
-    background: rgba(40, 40, 45, 0.8);
-    border-color: rgba(0, 196, 162, 0.35);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    background: rgba(40, 40, 45, 0.5);
+    border-color: rgba(0, 196, 162, 0.2);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   }
   
   &:active {
-    transform: translateY(0);
+    transform: scale(0.98);
   }
 }
 
