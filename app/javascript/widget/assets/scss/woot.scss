@@ -6,6 +6,151 @@
 @import 'views/conversation';
 
 // ============================================
+// VAREJÃO CLEAN THEME - 2025 REBRAND
+// ============================================
+
+:root {
+  --varejao-green: #00c4a2;
+  --varejao-dark: #0e0e10;
+  --glass-bg: rgba(14, 14, 16, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --text-primary: #f0f0f0;
+  --text-secondary: #a0a0a0;
+}
+
+// 1. BASE TRANSPARENCY (CRITICAL FOR GLASSMORPHISM)
+html,
+body {
+  background: transparent !important;
+  /* Permite ver o fundo do SDK */
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text-primary);
+}
+
+// 2. SCROLLBAR HIDDEN
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+// 3. WIDGET MODES & DIMENSIONS
+// Controlled by container classes injected by Vue
+
+.widget-home-mode,
+.widget-chat-mode,
+.widget-expanded {
+  height: 100% !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+// 4. GLASS COMPONENTS
+
+// Header
+header,
+.glass-header {
+  background: rgba(14, 14, 16, 0.3) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--glass-border);
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+// Footer/Input Area
+footer,
+.glass-footer {
+  background: transparent !important;
+  border-top: none !important;
+  padding: 10px;
+}
+
+// Inputs
+input,
+textarea {
+  background: rgba(40, 40, 45, 0.6) !important;
+  border: 1px solid transparent !important;
+  border-radius: 12px !important;
+  color: var(--text-primary) !important;
+  padding: 10px 14px !important;
+  font-size: 13px !important;
+  transition: all 0.2s ease;
+
+  &::placeholder {
+    color: var(--text-secondary) !important;
+  }
+
+  &:focus {
+    background: rgba(50, 50, 55, 0.8) !important;
+    border: 1px solid rgba(0, 196, 162, 0.3) !important;
+    /* Subtle green border */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    /* Soft shadow, NO OUTLINE */
+    outline: none !important;
+  }
+}
+
+// Chat Bubbles
+.chat-bubble {
+  border-radius: 12px !important;
+  padding: 10px 14px !important;
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+
+  &.user {
+    background: linear-gradient(135deg, rgba(0, 196, 162, 0.2), rgba(0, 196, 162, 0.1)) !important;
+    border: 1px solid rgba(0, 196, 162, 0.2) !important;
+    color: white !important;
+  }
+
+  &.agent {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid var(--glass-border) !important;
+    color: var(--text-primary) !important;
+  }
+}
+
+// 5. UTILITIES
+
+.text-n-slate-12 {
+  color: var(--text-primary) !important;
+}
+
+.text-n-slate-11 {
+  color: var(--text-secondary) !important;
+}
+
+// Icons styling
+.fluent-icon {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+// Buttons
+button {
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+}
+
+// Remove default outlines
+*:focus {
+  outline: none !important;
+}
+
+// ============================================
 // VAREJÃO GLASSMORPHISM THEME
 // ============================================
 
