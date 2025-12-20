@@ -148,6 +148,46 @@ button {
 // Remove default outlines
 *:focus {
   outline: none !important;
+  box-shadow: none !important;
+}
+
+// 6. OVERRIDES FOR EXISTING MARKUP CLASSES (CRITICAL)
+// These classes exist in the Vue templates and must be transparentized
+
+.bg-n-slate-2,
+.bg-n-background,
+.bg-n-solid-1,
+.bg-n-solid-2,
+.dark\:bg-n-solid-1,
+.dark\:bg-n-solid-2,
+.bg-slate-50,
+.bg-white {
+  background: transparent !important;
+  /* Force transparency over Tailwind utilities */
+  backdrop-filter: none !important;
+  /* Let the container handle the blur */
+}
+
+// Specific override for inputs to kill the green ring
+input:focus,
+textarea:focus {
+  --tw-ring-color: transparent !important;
+  --tw-ring-shadow: none !important;
+  border-color: rgba(0, 196, 162, 0.4) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+// Override text colors to ensure visibility on glass
+.text-n-slate-12,
+.text-slate-900,
+.text-gray-900 {
+  color: var(--text-primary) !important;
+}
+
+.text-n-slate-11,
+.text-slate-500,
+.text-gray-500 {
+  color: var(--text-secondary) !important;
 }
 
 // ============================================
